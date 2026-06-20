@@ -17,12 +17,11 @@ TEST(JsonTypeTest, C14_IsArray)
     EXPECT_TRUE(j.is_array());
 }
 
-// 故意缺陷 4：j 是字符串，这里错误地期望 is_string() 为 false
 TEST(JsonTypeTest, C15_IsString)
 {
     json j = "hello";
 
-    EXPECT_FALSE(j.is_string());
+    EXPECT_TRUE(j.is_string());
 }
 
 TEST(JsonTypeTest, C16_IsNumber)
