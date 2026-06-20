@@ -14,7 +14,7 @@ TEST(JsonParseTest,C01_ParseValidJsonObject){
 /*C02*/
 TEST(JsonParseTest,C02_ParseInvalidJsonThrows){
     std::string text=R"({"name":"Tom",)";
-    EXPECT_NO_THROW(json::parse(text));
+    EXPECT_THROW(json::parse(text), json::parse_error);
 }
 /*C03*/
 TEST(JsonDumpTest,C03_DumoCompactJsonString){
@@ -31,7 +31,7 @@ TEST(JsonDumpTest,C04_DumpFormattedJsonString){
     EXPECT_NE(result.find("    "),std::string::npos);
 }
 /*C05*/
-TEST(JsonObjectTest,C05_ContainsExistngField){
+TEST(JsonObjectTest,C05_ContainsExistingField){
     json j={{"id",1},{"name","Tom"}};
     EXPECT_TRUE(j.contains("id"));
     EXPECT_TRUE(j.contains("name"));
@@ -39,6 +39,6 @@ TEST(JsonObjectTest,C05_ContainsExistngField){
 /*C06*/
 TEST(JsonObjectTest,C06_AtExistingField){
     json j={{"id",1},{"name","Tom"}};
-    EXPECT_EQ(j.at("id"),2);
+    EXPECT_EQ(j.at("id"),1);
     EXPECT_EQ(j.at("name"),"Tom");
 }
