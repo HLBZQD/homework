@@ -28,8 +28,12 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(nlohmann_json)
 
+file(GLOB TEST_SOURCES CONFIGURE_DEPENDS
+    ${CMAKE_SOURCE_DIR}/tests/*.cpp
+)
+
 add_executable(json_tests
-    tests/01-06test.cpp
+    ${TEST_SOURCES}
 )
 
 target_include_directories(json_tests
