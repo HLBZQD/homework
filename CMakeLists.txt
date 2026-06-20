@@ -29,7 +29,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(nlohmann_json)
 
 add_executable(json_tests
-    tests/*.cpp
+    tests/01-06test.cpp
 )
 
 target_link_libraries(json_tests
