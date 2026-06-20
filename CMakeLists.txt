@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(NlohmannJsonGTestCI LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 enable_testing()
@@ -15,7 +15,7 @@ FetchContent_Declare(
     URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
 )
 
-# Windows 下避免运行时库不一致问题
+# Windows 下避免运行时库不一致问�?
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest)
